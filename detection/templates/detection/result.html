@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Detection Result</h2>
+<p style="color: rgb(250, 253, 253);"></pstyle>{{ result }}</p>
+<a href="{% url 'upload_image' %}"><p style="color: rgb(239, 206, 161);"> Try another image</p></a>
+{% endblock %}

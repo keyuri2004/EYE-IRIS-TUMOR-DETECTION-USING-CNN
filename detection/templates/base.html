@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}EYE IRIS TUMOUR DETECTOR{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'detection/css/styles.css' %}">
+
+    
+    
+</head>
+<style>
+   
+    header{
+        
+        
+        background-color: rgba(252, 247, 247, 0);
+        color: rgb(254, 251, 253);
+        
+    }
+    
+
+    body{
+        background-image: url('https://c4.wallpaperflare.com/wallpaper/587/466/400/digital-art-minimalism-blue-eyes-wallpaper-preview.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    form{
+        background-color: rgba(255, 255, 255, 0);
+       
+    }
+    form button{
+           background-color: rgb(44, 225, 74);
+           
+    }
+    
+    footer{
+        background-color: rgb(32, 61, 111);
+    }
+
+    
+</style>
+<body>
+    <!--<header><a href="#" class="logo">Shadow</a></header>-->
+    
+    <header>
+
+        <h1>EYE IRIS TUMOUR DETECTOR</h1>
+        <nav>
+            {% if user.is_authenticated %}
+                <a href="{% url 'home' %}">Home</a> |
+                <a href="{% url 'upload_image' %}">Upload Image</a> |
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'home' %}">HOME</a> |
+                <a href="{% url 'register' %}">REGISTER</a> |
+                <a href="{% url 'login' %}">LOGIN</a>
+    
+            {% endif %}
+        </nav>
+        
+    </header>
+
+
+
+    
+
+    <!-- Messages Section -->
+    {% if messages %}
+        <div class="messages">
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        
+    </footer>
+</body>
+</html>
